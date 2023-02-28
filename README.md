@@ -22,3 +22,12 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+DEPLOYMENT INSTRUCTIONS
+
+1. Start PostgreSQL Service:
+sudo service postgresql start
+2. Start Rails Backend in One Terminal (from root directory: /firstproject)
+rails s
+3. Start React Frontend in separate terminal (from /firstproject/client)
+npm start

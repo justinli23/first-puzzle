@@ -1,0 +1,15 @@
+.slot {
+  background-color: burlywood;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  height: 25%;
+  width: 20%;
+}
+
+#inventory {
+  width: 30%;
+  display: flex;
+}

@@ -1,0 +1,25 @@
+.room {
+  background-color: rgb(206, 221, 195);
+  height: 20vh;
+  width: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.row {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+.map {
+  background-color: rgb(94, 235, 235);
+  width: 30%;
+  opacity: 60%;
+}
+
+#here {
+  background-color: rgb(78, 233, 31);
+}
