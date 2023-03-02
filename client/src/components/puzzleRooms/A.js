@@ -40,12 +40,15 @@ function A() {
     "Y",
     "Z",
   ];
-  const cypher = new Map();
-  for (let i = 0; i < letters.length; i++) {
-    let value = i + 7 <= 26 ? i + 7 : i + 7 - 26;
-    cypher.set(letters[i], value);
-  }
 
+  const cypher = new Map();
+  for (let i = 0; i < quote.length; i++) {
+    let value = i;
+    if (!cypher.get(quote[i])) {
+      cypher.set(quote[i], value + 1);
+    }
+  }
+  console.log(cypher);
   //ENCODED - Array with Coded Numbers replacing each letter of quote
   const encoded = [];
   for (const char of quote) {
