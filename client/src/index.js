@@ -12,7 +12,6 @@ import B from "./components/puzzleRooms/B";
 import C from "./components/puzzleRooms/C";
 import D from "./components/puzzleRooms/D";
 import E from "./components/puzzleRooms/E";
-import BEmptyBox from "./components/puzzleRooms/BEmptyBox";
 
 const router = createBrowserRouter([
   {

@@ -1,4 +1,3 @@
-import minimap from "../../assets/minimap.png";
 import "./minimap.css";
 
 function Minimap(props) {

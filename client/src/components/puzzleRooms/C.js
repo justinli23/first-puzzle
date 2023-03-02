@@ -7,29 +7,40 @@ function C() {
   setLocation("C");
 
   const [operators, setOperators] = useState(Array(6).fill("?"));
+  const [solved, setSolved] = useState(false);
 
   function handleOp(operatorIndex, e) {
     const newOps = [...operators];
     newOps[operatorIndex] = e.target.value;
     setOperators(newOps);
+    checkSolved();
   }
 
+  function checkSolved() {
+    setSolved(true);
+  }
+  // Need to update state accurately!
   const operands = [
     [1, 4, 7],
     [2, 5, 8],
     [3, 6, 9],
   ];
 
-  const results = [4, 2, 2];
-
-  function updateOperators() {
-    const opForm = document.getElementsByClassName("operatorForm");
+  function toggleSolved() {
+    setSolved(!solved);
   }
 
-  //Need to have forms update state correctly!
+  const trueOperators = ["-", "+", "*", "-", "*", "/"];
+
+  const results = [4, 2, 2];
+
   return (
     <div>
       <h1>Puzzle C</h1>
+      {/* PROBLEM 1 */}
+      <button onClick={toggleSolved}>toggleSolved</button>
+      <div>{operators}</div>
+      <div>{trueOperators}</div>
       <div className="equation">
         <p>
           {operands[0][0]}
@@ -41,16 +52,31 @@ function C() {
       </div>
       <div>
         <form>
-          <input
-            type="text"
-            name="op1"
+          <select
+            id="op0"
+            name="op0"
+            className="operatorForm"
             onChange={(e) => {
               handleOp(0, e);
             }}
-          />
+          >
+            <option value="?"> </option>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+          </select>
         </form>
         <form>
-          <select id="op2" name="op2" class="operatorForm">
+          <select
+            id="op1"
+            name="op1"
+            className="operatorForm"
+            onChange={(e) => {
+              handleOp(1, e);
+            }}
+          >
+            <option value="?"> </option>
             <option value="+">+</option>
             <option value="-">-</option>
             <option value="*">*</option>
@@ -67,6 +93,42 @@ function C() {
           {operands[1][2]}={results[1]}
         </p>
       </div>
+      {/* //PROBLEM 2 */}
+      <div>
+        <form>
+          <select
+            id="op2"
+            name="op2"
+            className="operatorForm"
+            onChange={(e) => {
+              handleOp(2, e);
+            }}
+          >
+            <option value="?"> </option>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+          </select>
+        </form>
+        <form>
+          <select
+            id="op3"
+            name="op3"
+            className="operatorForm"
+            onChange={(e) => {
+              handleOp(3, e);
+            }}
+          >
+            <option value="?"> </option>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+          </select>
+        </form>
+      </div>
+      {/* //PROBLEM 3 */}
       <div className="equation">
         <p>
           {operands[2][0]}
@@ -76,6 +138,41 @@ function C() {
           {operands[2][2]}={results[2]}
         </p>
       </div>
+      <div>
+        <form>
+          <select
+            id="op4"
+            name="op4"
+            className="operatorForm"
+            onChange={(e) => {
+              handleOp(4, e);
+            }}
+          >
+            <option value="?"> </option>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+          </select>
+        </form>
+        <form>
+          <select
+            id="op5"
+            name="op5"
+            className="operatorForm"
+            onChange={(e) => {
+              handleOp(5, e);
+            }}
+          >
+            <option value="?"> </option>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+          </select>
+        </form>
+      </div>
+      {solved ? <div>SOLVED</div> : <div>NOT SOLVED</div>}
       <div>
         MOVE<br></br>
         <Link to={"/puzzle/b"}>LEFT TO PUZZLE ROOM B</Link>

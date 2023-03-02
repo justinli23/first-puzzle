@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
 import "./B.css";
-import BEmptyBox from "./BEmptyBox";
 
 function B() {
   const [location, setLocation] = useOutletContext();
