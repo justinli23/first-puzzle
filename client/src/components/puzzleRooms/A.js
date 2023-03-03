@@ -42,10 +42,11 @@ function A() {
   ];
 
   const cypher = new Map();
+  let value = 1;
   for (let i = 0; i < quote.length; i++) {
-    let value = i;
-    if (!cypher.get(quote[i])) {
-      cypher.set(quote[i], value + 1);
+    if (!cypher.get(quote[i]) && letters.includes(quote[i])) {
+      cypher.set(quote[i], value);
+      value++;
     }
   }
   console.log(cypher);
@@ -91,7 +92,6 @@ function A() {
       </div>
       <div>
         MOVE<br></br>
-        <Link to={"/puzzle/b"}>UP TO PUZZLE ROOM B</Link>
         <br></br>
         <Link to={"/puzzle/lobby"}>RIGHT TO LOBBY</Link>
       </div>

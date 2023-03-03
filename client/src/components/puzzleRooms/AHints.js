@@ -1,6 +1,5 @@
 function AHints(uniqueLetters) {
   const letters = Array.from(uniqueLetters.uniqueLetters);
-  console.log(letters);
   //LETTERS - array containing all unique letters found in original quote
 
   return (

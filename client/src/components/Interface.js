@@ -9,8 +9,8 @@ function Interface(props) {
   return (
     <div id="interface">
       {/* <Info /> */}
-      <Minimap location={props.location} />
-      <Inventory />
+      <Minimap location={props.location} setLocation={props.setLocation} />
+      <Inventory items={props.items} />
       <Stopwatch />
     </div>
   );

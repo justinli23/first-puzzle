@@ -6,10 +6,11 @@ import "./puzzle.css";
 
 function Puzzle(props) {
   const [location, setLocation] = useState("L");
+  const [items, setItems] = [useState(new Array(6))];
 
   return (
     <div className="puzzle">
-      <Interface location={location} />
+      <Interface location={location} setLocation={setLocation} items={items} />
       <Outlet context={[location, setLocation]} />
     </div>
   );

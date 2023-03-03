@@ -6,11 +6,20 @@ import "./B.css";
 function B() {
   const [location, setLocation] = useOutletContext();
   setLocation("B");
+  const [inventory, setInventory] = useOutletContext();
+
+  const [solved, setSolved] = useState(false);
+
+  function handleSolved() {
+    setSolved(true);
+    console.log(inventory);
+  }
 
   // const [box, setBox] = useState(true);
 
   function openBox(boxNum) {
     if (boxNum == 77) {
+      handleSolved();
       alert("Yay!");
     } else {
       alert("There's nothing here...");
