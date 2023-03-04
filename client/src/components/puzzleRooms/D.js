@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
 
 function D() {
-  const [location, setLocation] = useOutletContext();
+  const [setLocation, items, setItems] = useOutletContext();
   setLocation("D");
 
   const answers = ["White", "Milk", "Dark"];

@@ -4,14 +4,25 @@ import { Link } from "react-router-dom";
 import AHints from "./AHints";
 
 function A() {
-  const [location, setLocation] = useOutletContext();
+  const [setLocation, items, setItems] = useOutletContext();
   setLocation("A");
+  const [solved, setSolved] = useState(false);
 
-  //Quote - String of Quote that is the target
+  function handleSolved() {
+    if (solved == false) {
+      const newItems = [...items];
+      newItems.push("Blue Taffy");
+      setItems(newItems);
+    }
+    setSolved(true);
+    console.log(items);
+  }
+
+  //Quote - String of target quote
   const quote =
     "LIFE IS LIKE A BOX OF CHOCOLATES, YOU NEVER KNOW WHAT YOU'RE GOING TO GET";
 
-  //CYPHER - Map with Key: Letter, Val: Coded Number
+  //LETTERS - Array of All Uppercase Letters
   const letters = [
     "A",
     "B",
@@ -40,7 +51,7 @@ function A() {
     "Y",
     "Z",
   ];
-
+  //CYPHER - Map with Key: Letter, Val: Coded Number
   const cypher = new Map();
   let value = 1;
   for (let i = 0; i < quote.length; i++) {
@@ -60,16 +71,16 @@ function A() {
     }
   }
 
-  //SOLVED - Array of booleans that represents whether the char at that index has been solved
-  const [solved, setSolved] = useState(Array(quote.length).fill(false));
+  //PROGRESS - Array of booleans that represents whether the char at that index has been solved
+  const [progress, setProgress] = useState(Array(quote.length).fill(false));
 
-  //PROGRESS - String using "SOLVED" array and "quote" syntax to display progress
-  let progress = "";
+  //DISPLAY - String using "SOLVED" array and "quote" syntax to display progress
+  let display = "";
   for (let i = 0; i < quote.length; i++) {
-    if (letters.includes(quote[i]) && solved[i] == false) {
-      progress += "?";
+    if (letters.includes(quote[i]) && progress[i] == false) {
+      display += "?";
     } else {
-      progress += quote[i];
+      display += quote[i];
     }
   }
 

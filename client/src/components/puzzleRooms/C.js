@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
 
 function C() {
-  const [location, setLocation] = useOutletContext();
+  const [setLocation, items, setItems] = useOutletContext();
   setLocation("C");
 
   const [operators, setOperators] = useState(Array(6).fill("?"));

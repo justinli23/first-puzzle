@@ -3,7 +3,7 @@ import { Outlet, Link } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
 
 function Lobby() {
-  const [location, setLocation] = useOutletContext();
+  const [setLocation, items, setItems] = useOutletContext();
   setLocation("L");
 
   return (

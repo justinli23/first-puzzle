@@ -4,14 +4,14 @@ import { Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./puzzle.css";
 
-function Puzzle(props) {
+function Puzzle() {
   const [location, setLocation] = useState("L");
-  const [items, setItems] = [useState(new Array(6))];
+  const [items, setItems] = useState([]);
 
   return (
     <div className="puzzle">
       <Interface location={location} setLocation={setLocation} items={items} />
-      <Outlet context={[location, setLocation]} />
+      <Outlet context={[setLocation, items, setItems]} />
     </div>
   );
 }

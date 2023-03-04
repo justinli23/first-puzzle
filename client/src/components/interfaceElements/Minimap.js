@@ -2,9 +2,6 @@ import "./minimap.css";
 import { Link } from "react-router-dom";
 
 function Minimap(props) {
-  props.setLocation(props.location);
-  console.log(props.location);
-
   return (
     <div className="map">
       <div className="row">

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
 
 function E() {
-  const [location, setLocation] = useOutletContext();
+  const [setLocation, items, setItems] = useOutletContext();
   setLocation("E");
   const [cupA, setCupA] = useState([0, 2]);
   const [cupB, setCupB] = useState([0, 6]);

@@ -4,15 +4,18 @@ import { useOutletContext } from "react-router-dom";
 import "./B.css";
 
 function B() {
-  const [location, setLocation] = useOutletContext();
+  const [setLocation, items, setItems] = useOutletContext();
   setLocation("B");
-  const [inventory, setInventory] = useOutletContext();
-
   const [solved, setSolved] = useState(false);
 
   function handleSolved() {
+    const newItems = [...items];
+    if (!newItems.includes("Yellow Taffy")) {
+      newItems.push("Yellow Taffy");
+      setItems(newItems);
+    }
     setSolved(true);
-    console.log(inventory);
+    console.log(items);
   }
 
   // const [box, setBox] = useState(true);
@@ -51,13 +54,6 @@ function B() {
     <div>
       <h1>Puzzle B</h1>
       <div className="boxes">{boxes}</div>
-
-      <div>
-        MOVE<br></br>
-        <Link to={"/puzzle/a"}>DOWN TO PUZZLE ROOM A</Link>
-        <br></br>
-        <Link to={"/puzzle/c"}>RIGHT TO PUZZLE ROOM C</Link>
-      </div>
     </div>
   );
 }
