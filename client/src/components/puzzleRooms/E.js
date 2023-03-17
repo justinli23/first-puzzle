@@ -8,6 +8,8 @@ function E() {
   const [cupA, setCupA] = useState([0, 2]);
   const [cupB, setCupB] = useState([0, 6]);
   const [cupC, setCupC] = useState([0, 11]);
+  const [giver, setGiver] = useState("");
+  const [receiver, setReceiver] = useState("");
   // const [selected, setSelected] = useState("cup", "SetterFunction")
 
   function handleFill(cup, setter) {
@@ -18,10 +20,17 @@ function E() {
     setter([0, cup[1]]);
   }
 
+  function handleGiver(e) {
+    setGiver(e.target.value);
+  }
+
+  function handleReceiver(e) {
+    setReceiver(e.target.value);
+  }
+
   function handlePour(giver, setGiver, receiver, setReceiver) {
     const freeSpace = receiver[1] - receiver[0];
-    const transferAmount = giver[0] - freeSpace;
-
+    const transferAmount = giver[0] >= freeSpace ? freeSpace : giver[0];
     setGiver([giver[0] - transferAmount, giver[1]]);
     setReceiver([receiver[0] + transferAmount, receiver[1]]);
   }
@@ -31,7 +40,6 @@ function E() {
       <h1>Puzzle E</h1>
       <div className="cup">
         <div>CUP HERE</div>
-
         <button
           onClick={() => {
             handlePour(cupB, setCupB, cupA, setCupA);
@@ -100,10 +108,30 @@ function E() {
       <div>
         <p>Measure out 7 Cups of Fondue in any of the Cups</p>
       </div>
-      <Link to={"/puzzle/d"}>FORWARD TO "D"</Link>
-      <br></br>
-      <Link to={"/puzzle/lobby"}>LEFT TO LOBBY"</Link>
-      <br></br>
+      <div>
+        <p>
+          Pour From Cup {giver} to {receiver}
+        </p>
+        <form>
+          <select id="pour" name="pour" onChange={handleGiver}>
+            <option value=""></option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+          </select>
+        </form>
+        to Cup
+        <form>
+          <select id="pour" name="pour" onChange={handleReceiver}>
+            <option value=""></option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+          </select>
+          <br></br>
+          <button>POUR</button>
+        </form>
+      </div>
     </div>
   );
 }

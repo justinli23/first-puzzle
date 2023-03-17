@@ -6,22 +6,23 @@ import App from "./App";
 import ErrorPage from "./components/errorPage";
 import Lobby from "./components/Lobby";
 import Interface from "./components/Interface";
-import Puzzle from "./components/Puzzle";
 import A from "./components/puzzleRooms/A";
 import B from "./components/puzzleRooms/B";
 import C from "./components/puzzleRooms/C";
 import D from "./components/puzzleRooms/D";
 import E from "./components/puzzleRooms/E";
+import Info from "./components/Info";
+import LandingPage from "./components/LandingPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <LandingPage />,
     errorElement: <ErrorPage />,
   },
   {
     path: "/puzzle",
-    element: <Puzzle />,
+    element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {
