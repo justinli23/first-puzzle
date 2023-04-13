@@ -18,17 +18,6 @@ function B() {
     console.log(items);
   }
 
-  // const [box, setBox] = useState(true);
-
-  function openBox(boxNum) {
-    if (boxNum == 77) {
-      handleSolved();
-      alert("Yay!");
-    } else {
-      alert("There's nothing here...");
-    }
-  }
-
   const boxes = [];
   for (let rows = 0; rows < 10; rows++) {
     // note: we are adding a key prop here to allow react to uniquely identify each
@@ -50,9 +39,19 @@ function B() {
   }
   const correctBox = 77;
 
+  function openBox(boxNum) {
+    if (boxNum == correctBox) {
+      handleSolved();
+      alert("You found something!");
+    } else {
+      alert("There's nothing here...");
+    }
+  }
+
   return (
     <div>
       <h1>Puzzle B</h1>
+      {solved ? "Completed" : ""}
       <div className="boxes">{boxes}</div>
     </div>
   );

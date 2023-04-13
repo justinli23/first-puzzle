@@ -52,30 +52,36 @@ function Stopwatch() {
               {("0" + Math.floor((time / 1000) % 60)).slice(-2)}
             </span>
             {/* <span className="digits mili-sec">
-            {("0" + ((time / 10) % 100)).slice(-2)}
-          </span> */}
+              {("0" + ((time / 10) % 100)).slice(-2)}
+            </span> */}
           </div>
         </div>
       )}
       <div>
-        <button onClick={toggleHidden} id="hide">
-          {isHidden ? "SHOW" : "HIDE"}
-        </button>
-        <br></br>
-        {!isPaused ? (
-          <button onClick={handlePause} id="pause">
-            PAUSE
+        {isHidden ? (
+          <button onClick={toggleHidden} id="hide">
+            SHOW TIMER
           </button>
         ) : (
-          <button onClick={handleStart} id="start">
-            RESUME
-          </button>
+          <div>
+            {!isPaused ? (
+              <button onClick={handlePause} id="pause">
+                PAUSE
+              </button>
+            ) : (
+              <button onClick={handleStart} id="start">
+                RESUME
+              </button>
+            )}
+            <button onClick={handleReset} id="reset">
+              RESET
+            </button>
+            <br></br>
+            <button onClick={toggleHidden} id="hide">
+              HIDE
+            </button>
+          </div>
         )}
-
-        <br></br>
-        <button onClick={handleReset} id="reset">
-          RESET
-        </button>
       </div>
     </div>
   );
